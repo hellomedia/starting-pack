@@ -1,0 +1,22 @@
+
+    ALERTE : Message suspect d'une tentative de scam addressé à un proprio
+
+    User email : {{ user.email }}
+
+    -----------------
+    Contenu du message :
+    ------------------
+
+    {{ message|raw }}
+
+    -----------------
+
+
+    Whitelist User :  {{ user|whitelist_url }}
+
+
+    -----------------
+
+    Vérifier l'utilisateur dans ControlRoom : {{ user|url }}
+
+    Vérifier la conversation dans ControlRoom : {{ conversation|url }}

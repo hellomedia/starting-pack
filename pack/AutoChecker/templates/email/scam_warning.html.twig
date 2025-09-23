@@ -1,0 +1,37 @@
+{% extends 'email/layout/template.html.twig' %}
+
+{% block content %}
+
+<p>*For English, see below*</p>
+
+<br>
+
+<p>Nous souhaitons vous avertir que l'annonce <a href="{{ listingUrlFr }}">{{ fullReference }}</a> a été identifiée comme frauduleuse.</p>
+
+<p>Au vu des informations à notre disposition, nous pensons que vous avez pu rentrer en contact avec l'auteur de l'annonce.</p>
+
+<p>Si c'est le cas, évitez simplement toute transaction avec cette personne.</p>
+
+<p>Pour plus d'informations, rendez-vous sur <a href="{{ scamWarningUrlFr }}">notre page dédiée à la sécurité</a>.</p>
+
+<p>Nous restons à votre disposition pour vos questions ou remarques,</p>
+
+<p>Bien à vous,</p>
+
+<p>===================================</p>
+
+<p>Hello,</p>
+
+<p>We would like to warn you that the listing <a href="{{ listingUrlEn }}" >{{ fullReference }}</a> has been identified as a scam.</p>
+
+<p>Our records indicate that you have possibly been in touch with the poster.</p>
+
+<p>If it is the case, simply do not pursue any transaction with this person.</p>
+
+<p>For more information, please read our <a href="{{ scamWarningUrlEn }}">security guidelines</a>.</p>
+
+<p>We thank you for your trust and remain at your disposal for further information,</p>
+
+<p>Sincerely,</p>
+
+{% endblock %}

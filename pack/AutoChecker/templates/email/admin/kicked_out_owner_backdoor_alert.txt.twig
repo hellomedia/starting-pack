@@ -1,0 +1,23 @@
+
+    ALERTE : Annonce avec élément suspect qui peut laisser croire à une activité
+    d'un proprio viré qui s'est réinscrit en rentrant par l'arrière.
+
+    --- Il faut checker ce user et si besoin, le hellbanner manuellement ---
+
+    ------------------
+
+    User : {{ user }}
+
+    email : {{ user.email }}
+
+    Elements suspect dans l'annonce : {{ suspicious_items|join(', ') }}
+
+    ------------------
+
+    Background des élements suspects :
+
+    -----------------
+
+    Vérifier l'utilisateur dans ControlRoom : {{ user|url }}
+
+    ------------------

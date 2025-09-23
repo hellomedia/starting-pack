@@ -1,0 +1,40 @@
+{% extends 'email/layout/template.html.twig' %}
+
+{% block content %}
+
+<p>*For English, see below*</p>
+
+<br>
+
+<p>Veuillez négligez l'alerte concernant l'annonce
+    <a href="{{ listingUrlFr }}">{{ fullReference }}</a>.
+</p>
+
+<p>Cette alerte a été envoyée par erreur.</p>
+
+<p>Notre système de détection a connu un bug, qui est à présent corrigé.</p>
+
+<p>Nos sincères excuses pour le désagrément.</p>
+
+<p>Nous restons à votre disposition pour vos questions ou remarques,</p>
+
+<p>Bien à vous,</p>
+
+<p>===================================</p>
+
+<p>Hello,</p>
+
+<p>Please discard the warning about listing
+    <a href="{{ listingUrlEn }}" >{{ fullReference }}</a>.</p>
+
+<p>This warning has been sent by mistake.</p>
+
+<p>Our detection system has encounteered a bug, which is now fixed.</p>
+
+<p>We apologize for the inconvenience.</p>
+
+<p>We thank you for your trust and remain at your disposal for further information,</p>
+
+<p>Sincerely,</p>
+
+{% endblock %}

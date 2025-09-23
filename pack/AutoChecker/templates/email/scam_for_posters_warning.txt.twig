@@ -1,0 +1,73 @@
+{% extends 'email/layout/template.txt.twig' %}
+
+{% block content %}
+
+{% if language in ['fr', 'fr_BE', 'fr_FR'] %}
+
+Nous souhaitons vous avertir qu'un contact que vous avez reçu dernièrement
+sur {{ siteName }} a été identifié comme frauduleux.
+
+Il s'agit de ce contact: {{ scammerName }}
+
+et voici la conversation correspondante dans votre messagerie {{ siteName }}:
+
+{{ conversationUrl }}
+
+Nous vous invitons à ne pas donner suite aux demandes de ce contact.
+
+Aucune autre action n'est requise.
+
+Cet email fait partie de notre procédure d'alerte
+automatique pour protéger les utilisateurs.
+
+Si vous avez des doutes sur un contact à l'avenir, n'hésitez pas
+à nous demander !
+
+Bien à vous,
+
+
+L'équipe de {{ siteName }}.
+
+
+{% else %}
+
+We would like to inform you that a recent contact
+you have received on {{ siteName }} has been identified as fraudulous.
+
+
+
+Here is the contact's name: {{ scammerName }}
+
+and the corresponding conversation on {{ siteName }}:
+
+ {{ conversationUrl }}.
+
+
+We invite you to simply ignore this person and not pursue any
+transactions with that person.
+
+
+No other action is required.
+
+
+This message is part of our automated procedure
+to warn and protect users.
+
+
+If you have doubts about a contact in the future, don't
+hesitate to ask us.
+
+
+We thank you for your trust and remain at your disposal.
+
+
+Regards,
+
+
+The team at {{ siteName }}
+
+{% endif %}
+
+{% endblock %}
+
+{% block footer '' %}

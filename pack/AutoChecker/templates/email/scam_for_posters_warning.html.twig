@@ -1,0 +1,92 @@
+{% extends 'email/layout/template.html.twig' %}
+
+{% block content %}
+
+{% if language in ['fr', 'fr_BE', 'fr_FR'] %}
+<p>
+    Nous souhaitons vous avertir qu'un contact que vous avez reçu dernièrement
+    sur {{ siteName }} a été identifié comme frauduleux.
+</p>
+
+<p>
+    Il s'agit de ce contact: {{ scammerName }}
+</p>
+<p>
+    et voici la conversation correspondante dans votre messagerie {{ siteName }}:
+</p>
+<p>
+    {{ conversationUrl }}
+</p>
+<p>
+    Nous vous invitons à ne pas donner suite aux demandes de ce contact.
+</p>
+<p>
+    Aucune autre action n'est requise.
+</p>
+<p>
+    Cet email fait partie de notre procédure d'alerte
+    automatique pour protéger les utilisateurs.
+</p>
+<p>
+    Si vous avez des doutes sur un contact à l'avenir, n'hésitez pas
+    à nous demander !
+</p>
+<p>
+    Nous vous remercions pour votre confiance et restons
+    à votre disposition.
+</p>
+
+<p>Bien à vous,</p>
+
+<br>
+
+<p>L'équipe de {{ siteName }}</p>
+
+{% else %}
+
+<p>
+    We would like to inform you that a recent contact
+    you have received on {{ siteName }} has been identified as fraudulous.
+</p>
+
+<p>
+    Here is the contact's name: {{ scammerName }}
+</p>
+<p>
+    And the corresponding conversation on {{ siteName }}:
+</p>
+<p>
+     {{ conversationUrl }}
+</p>
+
+<p>
+    We invite you to simply ignore this person and not pursue any
+    transactions with that person.
+</p>
+<p>
+    No other action is required.
+</p>
+<p>
+    This message is part of our automated procedure
+    to warn and protect users.
+</p>
+<p>
+    If you have doubts about a contact in the future, don't
+    hesitate to ask us.
+</p>
+<p>
+    We thank you for your trust and remain at your disposal.
+</p>
+
+<p>Regards,</p>
+
+<br>
+
+<p>The team at {{ siteName }}</p>
+
+
+{% endif %}
+
+{% endblock %}
+
+{% block footer '' %}

@@ -1,0 +1,17 @@
+
+POSTSALE BACKGROUND REQUEST NOTICE
+===================================
+
+
+Order: {{ order.id }}
+
+Already processed: {{ order.processed ? 'TRUE' : 'FALSE' }}
+
+Already processed (double check from payment feedback processor): {{ is_already_processed ? 'TRUE' : 'FALSE' }}
+
+User: {{ order.user }}
+
+{{ order.user|url }}
+
+------------------
+

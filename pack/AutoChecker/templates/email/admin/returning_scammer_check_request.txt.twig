@@ -1,0 +1,35 @@
+
+DEMANDE DE VERIFICATION ADMIN
+=============================
+
+Returning scammer detected. 
+
+Il a été auto-hellbanned.
+
+*** Aucun warning aux contacts n'a été envoyé pour le moment ***
+
+*** Une vérification manuelle est nécessaire ***
+
+------------------
+
+User: {{ user }}
+
+Email: {{ user.email }}
+
+registration: {{ user.createdAt|date('d/m/y H:i') }}
+
+type: {{ user.accountType|trans }}
+
+suspicious items : {{ suspicious_items|join(', ') }}
+
+auto-hellbanned ? : {{ user.hellbanned ? 'YES' : 'NO' }}
+
+warnings sent to contacts : NO
+
+------------------
+
+ControlRoom : {{ user|url }}
+
+Kotcop : {{ user|kotcop_url }}
+
+------------------

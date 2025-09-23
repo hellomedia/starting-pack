@@ -1,0 +1,41 @@
+{% extends 'email/layout/template.txt.twig' %}
+
+{% block content %}
+
+
+*For English, see below*
+
+
+Veuillez négligez l'alerte concernant l'annonce {{ listingUrlFr }}
+
+{{ fullReference }}
+
+Cette alerte a été envoyée par erreur.
+
+Notre système de détection a connu un bug, qui est à présent corrigé.
+
+Nos sincères excuses pour le désagrément.
+
+Nous restons à votre disposition pour vos questions ou remarques,
+
+Bien à vous,
+
+===================================
+
+Hello,
+
+Please discard the warning about listing {{ listingUrlEn }}
+
+{{ fullReference }}
+
+This warning has been sent by mistake.
+
+Our detection system has encounteered a bug, which is now fixed.
+
+We apologize for the inconvenience.
+
+We thank you for your trust and remain at your disposal for further information,
+
+Sincerely,
+
+{% endblock %}

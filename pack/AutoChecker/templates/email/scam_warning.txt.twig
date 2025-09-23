@@ -1,0 +1,46 @@
+{% extends 'email/layout/template.txt.twig' %}
+
+{% block content %}
+
+
+*For English, see below*
+
+
+
+Nous souhaitons vous avertir que l'annonce {{ fullReference }} a été identifiée comme frauduleuse.
+
+{{ listingUrlFr }}
+
+Au vu des informations à notre disposition, nous pensons que vous avez pu rentrer en contact avec l'auteur de l'annonce.
+
+Si c'est le cas, évitez toute transaction avec cette personne.
+
+Pour plus d'informations, rendez-vous sur  notre page dédiée à la sécurité :
+
+{{ scamWarningUrlFr }}
+
+Nous restons à votre disposition pour vos questions ou remarques,
+
+Bien à vous,
+
+===================================
+
+Hello,
+
+We would like to warn you that the listing {{ fullReference }} has been identified as a scam.
+
+{{ listingUrlEn }}
+
+Our database records indicate that you have possibly been in touch with the poster.
+
+If it is the case, do not pursue any transaction with this person.
+
+For more information, please read our security guidelines :
+
+{{ scamWarningUrlEn }}
+
+We thank you for your trust and remain at your disposal for further information,
+
+Sincerely,
+
+{% endblock %}
