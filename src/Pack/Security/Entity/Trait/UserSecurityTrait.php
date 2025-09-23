@@ -2,8 +2,8 @@
 
 namespace App\Pack\Security\Entity\Trait;
 
-use App\Doctrine\Types\Citext;
 use App\Entity\User;
+use App\Pack\Security\Doctrine\Types\CiText;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -33,7 +33,7 @@ trait UserSecurityTrait
      * ===========================
      * Don't forget to add unique entity mapping constraint + validation constraint in the User entity
      */
-    #[ORM\Column(type: Citext::NAME, length: 180)]
+    #[ORM\Column(type: CiText::NAME)]
     private ?string $email = null;
 
     /**

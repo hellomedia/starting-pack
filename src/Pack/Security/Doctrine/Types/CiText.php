@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Doctrine\Types;
+namespace App\Pack\Security\Doctrine\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\TextType;
 
-final class Citext extends TextType
+/**
+ * NB: Activate extension in database by adding this in migration:
+ *     CREATE EXTENSION IF NOT EXISTS citext;
+ */
+final class CiText extends TextType
 {
-    const NAME = 'citext';
+    const NAME = 'citext'; // lowercase for postgresql
 
     public function getName(): string
     {
