@@ -1,0 +1,37 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+
+{% extends "@EasyAdmin/crud/form_theme.html.twig" %}
+
+{# EasyAdminAutocomplete form type #}
+{% block ea_autocomplete_widget %}
+    {{ form_widget(form.autocomplete, { attr: attr|merge({ required: required }) }) }}
+    <script>
+        document.dispatchEvent(new Event('ea.collection.item-added'));
+    </script>
+{% endblock ea_autocomplete_widget %}
+
+{# autogrow stimulus controller #}
+{% block textarea_widget %}
+    {%- set attr = attr|merge({
+        'data-controller': ('autogrow' ~ ' ' ~ attr['data-controller']|default(''))|trim,
+        'data-action': ('input->autogrow#resize' ~ ' ' ~ attr['data-action']|default(''))|trim,
+    }) 
+    -%}
+	{{ parent() }}
+{% endblock %}
+
+{# AjaxSubmitType #}
+{% block ajax_submit_widget %}
+	<div class="ajax-submit">
+		<button {{ block('button_attributes') }}
+            type="{{ type|default('submit') }}"
+        >
+            {{ label|trans }}
+        </button>
+		<div data-ajax-target="spinner"
+            class="spinner-wrapper hidden"
+        >
+			<div class="spinner" aria-hidden="true"></div>
+		</div>
+	</div>
+{% endblock %}
