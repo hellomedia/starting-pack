@@ -25,7 +25,7 @@
 @import "./form/radio.css";
 @import "./form/select.css";
 @import "./form/textarea.css";
-@import "./form/ajax-submit.css";
+@import "./form/switch.css";
 
 @import "./component/header.css";
 @import "./component/menu.css";
@@ -41,6 +41,7 @@
 @import "./component/modal-icon.css";
 @import "./component/modal-animation.css";
 @import "./component/flashes.css";
+@import "./component/table.css";
 
 /* path processing only works from app.css */
 #chat-box-container {
