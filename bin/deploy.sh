@@ -19,10 +19,10 @@
 #
 # If deployment breaks site, rollback:
 #
-#     $ ssh deploy@taro.hellokot.be doas /data/tcu/activate-release.sh live <YEAR><MONTH><DATE>-<HOUR><MINUTE><SECOND>
+#     $ ssh deploy@taro.hellokot.be doas /data/foo/activate-release.sh live <YEAR><MONTH><DATE>-<HOUR><MINUTE><SECOND>
 #
 #     OR
-#     $ cd /www/tcu/prod
+#     $ cd /www/foo/prod
 #     $ rm current-release  ( without trailing slash !)
 #     $ ln -s releases/<previous-working-release> current-release
 #     $ service php_fpm restart
@@ -35,13 +35,13 @@ BRANCH=main
 HOST=taro.hellokot.be
 USER=deploy
 TRACK=${TRACK:-live}
-PREFIX=/data/tcu/www/$TRACK
+PREFIX=/data/foo/www/$TRACK
 SSH="ssh"
 RELEASE_NAME=$(date +"%Y%m%d-%H%M%S")
 LOCAL_REPO=$(git rev-parse --show-toplevel || pwd)
-REPO=git@github.com:hellokot/tcu
+REPO=git@github.com:hellomedia/foo
 DEST=$PREFIX/releases/$RELEASE_NAME
-TMP_REPO=$(TMPDIR=$(pwd) mktemp -d -t tcu-deploy.XXXXX)
+TMP_REPO=$(TMPDIR=$(pwd) mktemp -d -t foo-deploy.XXXXX)
 
 # build inside docker
 COMMAND_PREFIX="docker compose -f ../docker-compose.yaml exec --user=www-data php sh -c"
@@ -49,7 +49,7 @@ BUILD_DIR=/data/www/$(basename $TMP_REPO)
 
 # tailwind binary
 # ATTN: line below expects 1 version folder. When we change the binary version, the old folder should be deleted.
-TAILWIND_BINARY_VERSION_DIR=$(basename $(dirname "$(realpath /home/nicolas/projects/tcu/var/tailwind/*/tailwindcss-linux-x64)"))
+TAILWIND_BINARY_VERSION_DIR=$(basename $(dirname "$(realpath /home/nicolas/projects/foo/var/tailwind/*/tailwindcss-linux-x64)"))
 TAILWIND_BINARY=/data/www/var/tailwind/$TAILWIND_BINARY_VERSION_DIR/tailwindcss-linux-x64
 
 if [ $1 = "--no-docker" ]; then
@@ -130,7 +130,7 @@ rsync_local () {
 }
 
 remote_activate () {
-    if ! $SSH -t "$USER@$HOST" "doas /data/tcu/activate-release.sh $TRACK \"$(basename $DEST)\""; then
+    if ! $SSH -t "$USER@$HOST" "doas /data/foo/activate-release.sh $TRACK \"$(basename $DEST)\""; then
         set +x
         echo -e "\033[41m\033[97m"
         echo ""
