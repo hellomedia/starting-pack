@@ -1,0 +1,9 @@
+<turbo-stream action="append" target="flash-container">
+	<template>
+		{% include '_toast.html.twig' with {
+            message: message,
+            type: type|default('success')
+        } %}
+	</template>
+</turbo-stream>
+

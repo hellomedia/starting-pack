@@ -1,0 +1,9 @@
+{# For rare instances when toasts needs to fired from js #}
+<div
+    data-controller="toast-for-js"
+    data-action="toast:show@window->toast-for-js#show"
+>
+    <template data-toast-for-js-target="template">
+        {% include "layout/toast/_toast.html.twig" with {message: '' } %}
+    </template>
+</div>
