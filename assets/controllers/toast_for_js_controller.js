@@ -1,31 +1,47 @@
-// For the rare instances when it's necessary to fire a toast from js
+/**
+ * Fire toast from JS
+ * 
+ * Usage
+ * =====
+ * For the rare instances when we need to fire a toast from js
+ * 
+{# layout/toast/_toast_from_js.html.twig , included in base.html.twig #}
+<div
+    data-controller="toast-for-js"
+    data-action="toast:show@window->toast-for-js#show"
+>
+    <template data-toast-for-js-target="template">
+        {% include "layout/toast/_toast.html.twig" with {message: '' } %}
+    </template>
+</div>
+
+{# in any stimulus controller #}
+this.dispatch("show", {
+        prefix: "toast",
+        detail: {
+            message: "Notifications activées avec succès !",
+            type: "success|error",
+        },
+    });
+ */
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-    static targets = ["template", "message"];
-
-    connect() {
-        console.log('toast for js controller connected')
-    }
+    static targets = ["template"];
 
     show(event) {
-
-        console.log('show')
         
         const { message, type = "success" } = event.detail;
-
         const toastEl = this.templateTarget.content.firstElementChild.cloneNode(true);
 
-        if (this.hasMessageTarget) {
-            console.log('add message')
-            this.messageTarget.textContent = message;
-        }
+        // Element not attached to the DOM yet => stimulus targets not accessible => querySelector
+        const messageEl = toastEl.querySelector('[data-toast-for-js-target="message"]');
 
-        // Optional: tweak styles based on `type` ("success", "error", "info", ...)
+        messageEl.textContent = message;
+
         if (type === "error") {
-            toastEl.classList.remove("text-gray-500", "bg-white");
-            toastEl.classList.add("text-red-700", "bg-red-50");
-            // you can also change icon, timerbar color, etc.
+            toastEl.classList.remove("toast--success");
+            toastEl.classList.add("toast--error");
         }
 
         this.element.appendChild(toastEl);

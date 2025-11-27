@@ -41,6 +41,7 @@
 @import "./component/modal-icon.css";
 @import "./component/modal-animation.css";
 @import "./component/flashes.css";
+@import "./component/toast.css";
 @import "./component/table.css";
 
 /* path processing only works from app.css */

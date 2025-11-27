@@ -1,7 +1,9 @@
 {% trans_default_domain 'feedback' %}
 
-{% trans_default_domain 'feedback' %}
-
 {% for message in app.flashes('success') %}
 	{% include 'layout/toast/_toast.html.twig' with { message: message } %}
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+	{% include 'layout/toast/_toast.html.twig' with { message: message, type: 'error'} %}
 {% endfor %}

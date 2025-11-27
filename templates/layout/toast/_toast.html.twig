@@ -1,15 +1,13 @@
 {% set isError = (type ?? 'success') == 'error' %}
 
 <div 
-    class="fixed top-5 left-1/2 -translate-x-1/2 flex items-center w-full max-w-sm p-5 mb-4 rounded-lg shadow
-           {{ isError ? 'text-red-700 bg-red-50' : 'text-gray-500 bg-white dark:text-gray-400 dark:bg-gray-800' }}"
+    class="toast {{ isError ? 'toast--error' : 'toast--success' }}"
     role="alert"
     data-controller="toast"
-    data-toast-auto-close-value="6000" {# NB: keep in sync with duration (duration-6000) on timerbar #}
+    data-toast-auto-close-value="5000" {# NB: keep in sync with duration (duration-5000 class) on timerbar #}
     data-turbo-temporary
 >
-    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg
-                {{ isError ? 'text-red-700 bg-red-100' : 'text-green-500 bg-green-100 dark:bg-green-800 dark:text-green-200' }}">
+    <div class="toast-icon">
         {# you could even swap icon based on type here #}
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
@@ -17,12 +15,12 @@
         <span class="sr-only">Status icon</span>
     </div>
 
-    <div class="ms-3 text-base font-normal" data-toast-for-js-target="message">
+    <div class="toast-message" data-toast-for-js-target="message">
         {{ message|trans }}
     </div>
 
     <button type="button"
-        class="ms-auto -mx-1.5 -my-1.5 bg-transparent text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-700"
+        class="toast-close"
         aria-label="Close"
         data-action="toast#close"
     >
@@ -32,9 +30,5 @@
         </svg>
     </button>
 
-    <div
-        class="absolute bottom-0 right-0 h-1 w-full transition-all ease-linear duration-6000
-               {{ isError ? 'bg-red-500' : 'bg-green-500' }}"
-        data-toast-target="timerbar"
-    ></div>
+    <div class="timerbar" data-toast-target="timerbar"></div>
 </div>

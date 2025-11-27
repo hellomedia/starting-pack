@@ -1,0 +1,72 @@
+@layer components {
+
+    .toast {
+        @apply fixed;
+        @apply top-5;
+        @apply left-1/2;
+        @apply -translate-x-1/2;
+        @apply flex;
+        @apply items-center;
+        @apply w-full;
+        @apply max-w-sm;
+        @apply p-5 mb-4;
+        @apply rounded-lg;
+        @apply shadow;
+    
+        &.toast--success {
+            @apply text-gray-500;
+            @apply bg-white;
+            @apply dark:text-gray-400;
+            @apply dark:bg-gray-800;
+        }
+        &.toast--error {
+            @apply text-red-700;
+            @apply bg-red-50;
+        }
+    }
+
+    .toast-icon {
+        @apply inline-flex;
+        @apply items-center;
+        @apply justify-center;
+        @apply flex-shrink-0;
+        @apply w-8;
+        @apply h-8;
+        @apply rounded-lg;
+
+        .toast--success & {
+            @apply text-green-500;
+            @apply bg-green-100;
+            @apply dark:text-green-800;
+            @apply dark:bg-green-200
+        }
+        .toast--error & {
+            @apply text-red-700;
+            @apply bg-red-100;
+        }
+    }
+
+    .toast-message {
+        @apply ms-3 text-base font-normal;
+    }
+
+    .toast-close {
+        @apply ms-auto -mx-1.5 -my-1.5 bg-transparent text-gray-400 rounded-lg p-1.5;
+        @apply inline-flex items-center justify-center h-8 w-8 dark:text-gray-500;
+        @apply hover:text-gray-900 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-700;
+        @apply focus:ring-2 focus:ring-gray-300;
+    }
+
+    .timerbar {
+        @apply absolute bottom-0 right-0 h-1 w-full;
+        @apply transition-all ease-linear;
+        @apply duration-5000;
+
+        .toast--success & {
+            @apply bg-green-500;
+        }
+        .toast--error & {
+            @apply bg-red-500;
+        }
+    }
+}
